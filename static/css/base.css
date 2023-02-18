@@ -1,0 +1,42 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(20, 20, 20);
+    color: whitesmoke;
+}
+#main-content {
+    margin: auto; 
+    width: fit-content;
+    max-width: 95%;    
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(40, 40, 40);
+}
+.center-content {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}  
+.buttonlink {
+    color: aqua;
+    text-decoration: none;
+    background-color: rgb(95, 95, 95); 
+    border: 2px solid gray;           
+    padding: 5px;
+    padding-inline: 10px;
+    border-radius: 20px;
+}    
+.buttonlink:hover {
+    color: rgb(113, 255, 255);
+    background-color: rgb(146, 146, 146); 
+}  
+.buttonlink:active {
+    color: rgb(0, 190, 190);
+    background-color: rgb(70, 70, 70);             
+}
+
+.buttonlink:visited {
+    color: aqua;
+}

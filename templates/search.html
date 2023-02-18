@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <script>
+            result = {{ search_result | safe }}
+            document.addEventListener("DOMContentLoaded", (e) => {                
+                console.log(result)
+                results_box = document.getElementById("search-results-box")
+                result.forEach(element => {
+                    results_box.innerHTML += `<a class="search-result" href="${element["url"]}">${element["primary_name"]}
+                            ${element["img_url"] != "" ? `<img src="${element["img_url"]}">` : ``}
+                        </a>`
+                });
+            })
+        </script>
+    </head>
+    <style>
+        #search-bar {
+            display: flex;
+            flex-direction: row;            
+        }
+        #search_text {
+            flex-grow: 3;
+        }
+        #search_run {
+            flex-grow: 1;
+        }
+        #main-content {
+            min-width: 35%;
+        }
+        #search-results-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .search-result {
+            display: flex;
+            flex-direction: row;
+            font-size: larger;
+            color: whitesmoke;
+            margin: 10px;
+            padding-block: 10px;
+            padding-inline: 20px;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            background-color: rgb(50, 50, 50);
+        }
+        .search-result:hover {
+            background-color: rgb(35, 35, 35);
+        }
+        .search-result a:visited {
+            color: whitesmoke;
+        }
+        .search-result img {
+            height: auto;
+        }
+    </style>
+    <body>
+        <div id="main-content">
+            <h1>Search</h1>
+            <form onsubmit="runSearch()" id="search-bar">
+                <input type="text" name="searchterm" id="search_text">
+                <input type="submit" Value="Search" id="search_run">
+            </form>
+            <div id="search-results-box"></div>
+        </div>        
+    </body>
+</html>
